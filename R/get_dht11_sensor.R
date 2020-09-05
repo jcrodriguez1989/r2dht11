@@ -36,7 +36,7 @@ config_dht11 <- function(pin) {
 
   # Configure the initial GPIO status.
   libs$RPi.GPIO$setwarnings(FALSE)
-  libs$RPi.GPIO$setmode(gpio$BCM)
+  libs$RPi.GPIO$setmode(RPi.GPIO$BCM)
   # libs$RPi.GPIO$cleanup()
 
   # Create the DHT11 sensor Python instance.
