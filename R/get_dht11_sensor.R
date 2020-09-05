@@ -51,6 +51,7 @@ config_dht11 <- function(pin) {
 # @param py_libs A vector of Python packages names to install.
 #
 #' @importFrom reticulate import py_install
+#' @importFrom stats setNames
 #
 try_load <- function(py_libs) {
   imports_error <- try({
