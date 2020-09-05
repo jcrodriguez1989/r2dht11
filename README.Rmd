@@ -1,0 +1,48 @@
+---
+title: r2dht11 - R to DHT11
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+Control your Raspberry Pi's DHT11 sensor from R.
+
+**Acknowledgments:** This package imports the [DHT11](https://github.com/szazo/DHT11_Python) Python library.
+
+## Installation
+
+`r2dht11` is currently only available as a GitHub package.
+
+To install it run the following from an R console:
+
+```{r, eval = FALSE}
+if (!require("remotes")) {
+  install.packages("remotes")
+}
+remotes::install_github("jcrodriguez1989/r2dht11", dependencies = TRUE)
+```
+
+## Prerequisites
+
+### DHT11 Connection
+
+Please make sure that your DHT11 is correctly connected to your Raspberry Pi. Take note to which GPIO pin is your DHT11 connected.
+
+## Usage
+
+In this example, the DHT11 is connected to the GPIO14 pin:
+
+```{r eval = FALSE}
+# Load the library.
+library("r2dht11")
+# Get a DHT11 sensor instance, which is connected to the GPIO 14 pin.
+dht11 <- get_dht11_sensor(14)
+# Read the sensor's values.
+read_sensor(dht11)
+```
