@@ -35,9 +35,9 @@ config_dht11 <- function(pin) {
   libs <- try_load(c("RPi.GPIO", "dht11"))
 
   # Configure the initial GPIO status.
-  libs$gpio$setwarnings(FALSE)
-  libs$gpio$setmode(gpio$BCM)
-  # libs$gpio$cleanup()
+  libs$RPi.GPIO$setwarnings(FALSE)
+  libs$RPi.GPIO$setmode(gpio$BCM)
+  # libs$RPi.GPIO$cleanup()
 
   # Create the DHT11 sensor Python instance.
   libs$dht11$DHT11(pin = pin)
@@ -54,8 +54,7 @@ config_dht11 <- function(pin) {
 #
 try_load <- function(py_libs) {
   imports_error <- try({
-    libs <- lapply(py_libs, import)
-    names(libs) <- py_libs
+    libs <- setNames(lapply(py_libs, import), py_libs)
   })
   # If there was an error, then prompt to install the libraries.
   if (inherits(imports_error, "try-error")) {
@@ -68,8 +67,7 @@ try_load <- function(py_libs) {
     if (install_libs != "y")
       stop("Required libraries not installed.")
     py_install(py_libs)
-    libs <- lapply(py_libs, import)
-    names(libs) <- py_libs
+    setNames(lapply(py_libs, import), py_libs)
   }
   libs
 }
