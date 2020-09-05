@@ -1,0 +1,19 @@
+Package: r2dht11
+Type: Package
+Title: Raspberry Pi's DHT11 Sensor Control From R
+Version: 0.1.0
+Authors@R: c(
+  person(given = "Juan Cruz", family = "Rodriguez", 
+    role = c("aut", "cre"), email = "jcrodriguez@unc.edu.ar")
+  )
+Maintainer: Juan Cruz Rodriguez <jcrodriguez@unc.edu.ar>
+Description: Control your Raspberry Pi's DHT11 sensor from R.
+License: MIT + file LICENSE
+URL: https://github.com/jcrodriguez1989/r2dht11
+BugReports: https://github.com/jcrodriguez1989/r2dht11/issues
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Imports:
+  methods,
+  reticulate
