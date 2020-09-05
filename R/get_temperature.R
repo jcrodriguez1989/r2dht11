@@ -34,10 +34,10 @@ setMethod("get_temperature", "DHT11", function(x, scale = "celsius", max_retries
   # Read the sensor.
   res <- read_sensor(x, max_retries = max_retries)
   # If the sensor could not be read, return NA.
-  if (is.na(res))
+  if (all(is.na(res)))
     return(NA)
   # Transform the scale.
-  res <- res$temperature
+  temp <- res$temperature
   switch (
     scale,
     celsius = temp,
